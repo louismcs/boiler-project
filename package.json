@@ -2,6 +2,9 @@
   "name": "project-boiler",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "10.x"
+  },
   "scripts": {
     "start": "node server-prod/bin/www",
     "server": "nodemon server/bin/www --exec babel-node --presets babel-preset-env",
