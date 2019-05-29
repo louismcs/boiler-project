@@ -3,7 +3,7 @@
     <v-toolbar app>
       <v-toolbar-title class="headline text-uppercase">
         <span>Vuetify</span>
-        <span class="font-weight-light">MATERIAL DESIGN</span>
+        <span class="font-weight-light">{{ apiData }} DESIGN</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn
@@ -16,23 +16,34 @@
     </v-toolbar>
 
     <v-content>
-      <HelloWorld />
+      <HelloWorld/>
     </v-content>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld";
+import HelloWorld from './components/HelloWorld'
+import axios from 'axios';
 
 export default {
-  name: "App",
+  name: 'App',
   components: {
     HelloWorld
   },
-  data() {
+  data () {
     return {
-      //
+      apiData: '',
     };
-  }
-};
+  },
+  mounted() {
+        const url = 'http://api.' + process.env.VUE_APP_SERVER_DOMAIN + '/test';
+        axios.get(url)
+        .then((response) => {
+            this.apiData = response.data;
+        })
+        .catch((err) => {
+            console.error(err);
+        });
+    },
+}
 </script>
