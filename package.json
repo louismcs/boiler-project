@@ -3,18 +3,28 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "start": "node server-prod/bin/www",
+    "server": "nodemon server/bin/www --exec babel-node --presets babel-preset-env",
+    "client": "vue-cli-service serve",
+    "build:client": "vue-cli-service build",
+    "build:server": "babel server --out-dir server-prod --copy-files",
+    "build": "npm run build:client && npm run build:server",
     "lint": "vue-cli-service lint",
     "test:e2e": "vue-cli-service test:e2e",
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
+    "cookie-parser": "~1.4.3",
     "core-js": "^2.6.5",
+    "cors": "^2.8.5",
+    "debug": "~2.6.9",
+    "express": "~4.16.0",
+    "morgan": "~1.9.0",
     "vue": "^2.6.10",
     "vue-class-component": "^7.0.2",
     "vue-property-decorator": "^8.1.0",
-    "vue-router": "^3.0.3"
+    "vue-router": "^3.0.3",
+    "vuetify": "^1.5.5"
   },
   "devDependencies": {
     "@types/jest": "^23.1.4",
@@ -33,8 +43,12 @@
     "eslint-plugin-vue": "^5.0.0",
     "sass": "^1.18.0",
     "sass-loader": "^7.1.0",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.1",
     "ts-jest": "^23.0.0",
     "typescript": "^3.4.3",
-    "vue-template-compiler": "^2.6.10"
+    "vue-cli-plugin-vuetify": "^0.5.0",
+    "vue-template-compiler": "^2.6.10",
+    "vuetify-loader": "^1.0.5"
   }
 }
