@@ -1,8 +1,8 @@
 .DS_Store
 node_modules
+/server-prod/
 
-/server/public
-/server-prod
+/server/public/
 
 /tests/e2e/videos/
 /tests/e2e/screenshots/
