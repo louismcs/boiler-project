@@ -8,7 +8,7 @@
         "build:client": "vue-cli-service build",
         "build:server": "babel server --out-dir server-prod --copy-files --extensions \".ts\"",
         "client": "vue-cli-service serve",
-        "server": "nodemon server/bin/www --exec babel-node --config-file .babelrc",
+        "server": "nodemon server/bin/www --exec babel-node --extensions \".js\",\".ts\" --presets \"@babel/preset-env\",\"@babel/preset-typescript\"",
         "start": "node server-prod/bin/www",
         "test:e2e": "vue-cli-service test:e2e",
         "test:unit": "vue-cli-service test:unit",
