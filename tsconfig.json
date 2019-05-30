@@ -17,6 +17,7 @@
         "baseUrl": ".",
         "types": ["node", "webpack-env", "vuetify", "mocha", "chai"],
         "paths": {
+            "*": ["types/*"],
             "@/*": ["src/*"]
         },
         "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
