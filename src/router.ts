@@ -19,7 +19,7 @@ export default new Router({
             // route level code-splitting
             // this generates a separate chunk (about.[hash].js) for this route
             // which is lazy-loaded when the route is visited.
-            component: () =>
+            component: (): Promise<any> => //This type isn't specific enough, but this line will go soon
                 import(/* webpackChunkName: "about" */ './views/About.vue')
         }
     ]

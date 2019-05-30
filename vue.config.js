@@ -1,4 +1,4 @@
-const path = require('path');
+import path from 'path';
 
 module.exports = {
     outputDir: path.resolve(__dirname, 'server/public'),
