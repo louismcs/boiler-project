@@ -11,10 +11,11 @@
         "experimentalDecorators": true,
         "esModuleInterop": true,
         "allowSyntheticDefaultImports": true,
-        "isolatedModules": true,
+        "isolatedModules": false,
         "sourceMap": true,
+        "noImplicitThis": true,
         "baseUrl": ".",
-        "types": ["webpack-env", "vuetify", "mocha", "chai"],
+        "types": ["node", "webpack-env", "vuetify", "mocha", "chai"],
         "paths": {
             "@/*": ["src/*"]
         },

@@ -24,28 +24,36 @@
 <script lang="ts">
 import HelloWorld from './components/HelloWorld.vue';
 import axios from 'axios';
+import { Component, Vue } from 'vue-property-decorator';
 
-export default {
-    name: 'App',
+@Component({
     components: {
-        HelloWorld
+        HelloWorld,
     },
-    data() {
-        return {
-            apiData: ''
-        };
-    },
+})
+class App extends Vue {
+    apiData: string = '';
+
+    getApiData(): string {
+        return this.apiData;
+    }
+
+    setApiData(apiData: string): void {
+        this.apiData = apiData;
+    }
+
     mounted() {
-        const url: number =
-            'http://api.' + process.env.VUE_APP_SERVER_DOMAIN + '/test';
+        const url = 'http://api.' + process.env.VUE_APP_SERVER_DOMAIN + '/test';
         axios
             .get(url)
             .then(response => {
-                this.apiData = response.data;
+                this.setApiData(response.data);
             })
             .catch(err => {
                 console.error(err);
             });
     }
-};
+}
+export default App;
+
 </script>

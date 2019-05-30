@@ -1,8 +1,9 @@
 var Router = require('express').Router;
 var router = Router();
+import { Request, Response, NextFunction } from 'express';
 
 /* GET home page. */
-router.get('/test', function(req, res, next) {
+router.get('/test', function(req: Request, res: Response, next: NextFunction) {
     res.send('Hello Typescript API');
 });
 

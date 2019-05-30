@@ -75,7 +75,6 @@
 </template>
 
 <script lang="ts">
-let x: string = 3;
 export default {
     data: () => ({
         ecosystem: [
