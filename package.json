@@ -12,7 +12,6 @@
         "start": "node server-prod/bin/www",
         "test:e2e": "vue-cli-service test:e2e",
         "test:unit": "vue-cli-service test:unit",
-        "typecheck": "tsc --noEmit",
         "prettier": "pretty-quick"
     },
     "dependencies": {
