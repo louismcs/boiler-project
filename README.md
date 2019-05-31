@@ -1,39 +1,56 @@
 # project-boiler
 
-## Project setup
+## Set up
+1. Install dependencies by running:
 ```
 npm install
 ```
-
-### Compiles and hot-reloads for development
+2. Create a .env.local file with appropriate environment variables
+3. Configure your hosts file to work with the subdomains. I added the following line to my file:
 ```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
+127.0.0.1    api.boiler.local    boiler.local
 ```
 
-### Run your tests
+## Running locally
+Run the server using:
+```
+npm run server
+```
+This script restarts the server when a change is made to a relevant file.
+*Please note that running the server before building the project in a development environment will allow the api to function, but the Vue app will not be served (as these files need to be built for the server to run).*
+
+For an optimal development environment (which mitigates build time), building the project is not necessary, as the Vue app can be accessed independently of the server (on a different port), by running:
+```
+npm run client
+```
+This script means that front-end changes are automatically reloaded in the browser.
+*Please note that the server must be running for the API to be accessed by the front-end.*
+
+## Tests
+Test using:
 ```
 npm run test
 ```
+This typechecks, then runs unit tests (Mocha + Chai), then runs end-to-end tests (Cypress).
 
-### Lints and fixes files
+## Cleaning up code
+Lint using:
 ```
 npm run lint
 ```
-
-### Run your end-to-end tests
+Format code using:
 ```
-npm run test:e2e
-```
-
-### Run your unit tests
-```
-npm run test:unit
+npm run prettier
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Running in production
+Before running, a production server must build the project:
+```
+npm run build
+```
+This first typechecks the project, then builds the front-end, which creates files to be served in the /server/public directory. The build then uses Babel to transpile the server code from ES6 Typescript to something that the server can run, outputting to the /server-prod directory.
+
+The production server can then start by running 
+```
+npm start
+```
